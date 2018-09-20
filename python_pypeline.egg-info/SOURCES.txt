@@ -1,0 +1,7 @@
+README.md
+setup.py
+python_pypeline.egg-info/PKG-INFO
+python_pypeline.egg-info/SOURCES.txt
+python_pypeline.egg-info/dependency_links.txt
+python_pypeline.egg-info/requires.txt
+python_pypeline.egg-info/top_level.txt

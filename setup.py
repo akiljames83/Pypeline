@@ -4,7 +4,7 @@ setup(
     name = "python-pypeline",
     url = "https://github.com/akiljames83/Pypeline",
     version = "0.1.0",
-    install_requires = ['docutils>=0.3','heapq>=0.1''numpy>=0.1'],
+    install_requires = ['docutils>=0.3','numpy>=0.1'],
 
     # metadata for upload to PyPI
     author = "Akil Hamilton",
