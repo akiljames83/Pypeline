@@ -2,13 +2,9 @@ from setuptools import setup
 
 setup(
     name = "Pypeline",
+    url = "https://github.com/akiljames83/Pypeline",
     version = "0.1.0",
     packages = find_packages(),
-    #scripts = ['BinarySearchTree.py','BinaryTree.py','LinkedList.py','MaxHeap.py','MinHeap.py','Node.py','Trie.py','TernarySearchTree.py'],
-
-    # Project uses reStructuredText, so ensure that the 
-    # docutils get installed or upgraded on the target 
-    # machine
     install_requires = ['docutils>=0.3','heapq'],
 
     # metadata for upload to PyPI
