@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name = "Pypeline",
+    name = "python-pypeline",
     url = "https://github.com/akiljames83/Pypeline",
     version = "0.1.0",
     packages = find_packages(),
