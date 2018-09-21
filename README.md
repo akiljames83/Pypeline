@@ -14,7 +14,7 @@ If version installed is <=0.3.1 then you need to upgrade the version Pypeline:
 `<pip install python-pypeline --upgrade>`
 
 ## Data Structures Implemented
-*   AVL Tree
+*   [AVL Tree](#avl-tree)
 *   Binary Search Tree
 *   Regual Heap
 *   Max Heap
@@ -28,7 +28,7 @@ If version installed is <=0.3.1 then you need to upgrade the version Pypeline:
 ----------------------
 ## A Simple Exam
 
-### AVL Tree's
+### AVL Tree
 ```python
 # Instantiate AVL Tree
 avl = AVL()
