@@ -13,10 +13,13 @@ If version installed is <=0.3.1 then you need to upgrade the version Pypeline:
 
 `<pip install python-pypeline --upgrade>`
 
+To test install, run the following line of code:
+
+`import Pypeline`
+
 ## Data Structures Implemented
 *   [AVL Tree](#avl-tree)
-*   Binary Search Tree
-*   Regual Heap
+*   [Binary Search Tree](#binary-search-tree)
 *   Max Heap
 *   Min Heap
 *   Node
@@ -30,6 +33,8 @@ If version installed is <=0.3.1 then you need to upgrade the version Pypeline:
 
 ### AVL Tree
 ```python
+from Pypeline.Pypes.AVLTree import AVL
+
 # Instantiate AVL Tree
 avl = AVL()
 
@@ -42,5 +47,28 @@ avl.traverse() # will display numbers 1 - 10
 
 # Remove nodes from the Tree
 avl.remove(5)
-````
+```
 
+### Binary Search Tree
+```python
+from Pypeline.Pypes.BinarySearchTree import BST
+
+# Instantiate Binary Search Tree
+bst = BST()
+
+# Add Nodes to the Tree; the tree will automatically balance itself
+for i in range(10):
+  bst.insert(i)
+
+# Get size of the Tree
+bst_size = bst.getSize()
+
+# Display the BST using an In Order Traversal; can also use preOrderTraversal and postOrderTraversal
+bst.inOrderTraversal() # will display numbers 1 - 10
+
+# Remove nodes from the Tree
+bst.remove(5)
+
+# Get min value and max value
+bst_min, bst_max = bst.getMinValue(), bst.getMaxValue()
+```
