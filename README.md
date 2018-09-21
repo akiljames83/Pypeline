@@ -7,11 +7,11 @@ On next iteration of pypeline, we plan on making an easy way to pass python data
 ## Installation
 Install Pypeline v0.3.2 using [pip](https://pip.pypa.io/en/stable/quickstart/):
 
-`<pip install python-pypeline>`
+`pip install python-pypeline`
 
 If version installed is <=0.3.1 then you need to upgrade the version Pypeline:
 
-`<pip install python-pypeline --upgrade>`
+`pip install python-pypeline --upgrade`
 
 To test install, run the following line of code:
 
@@ -20,8 +20,8 @@ To test install, run the following line of code:
 ## Data Structures Implemented
 *   [AVL Tree](#avl-tree)
 *   [Binary Search Tree](#binary-search-tree)
-*   Max Heap
-*   Min Heap
+*   [Max Heap](#max-heap)
+*   [Min Heap](#min-heap)
 *   Node
 *   Linked List
 *   Queue
@@ -71,4 +71,55 @@ bst.remove(5)
 
 # Get min value and max value
 bst_min, bst_max = bst.getMinValue(), bst.getMaxValue()
+```
+
+### Max Heap
+```python
+from Pypeline.Pypes.MaxHeap import MaxHeap
+
+# Instantiate the Max Heap; the list can be passed in on instantiation or with a builtin method
+maxheap = MaxHeap()
+
+# Convert list of MaxHeap
+maxheap.heapify([2, 4 , 10, 8])
+
+# Merge heap with another list
+maxheap.merge([1, 5, 3, 7])
+
+# Pop largest value from the heap
+_ = maxheap.heappop()
+
+# Insert value (type int or float) into the Heap
+maxheap.heappush(20)
+
+# Convert Heap into numpy array
+np_maxheap = maxheap.to_array()
+
+# Print the Max Heap Contents; Currently the Data Structure is not iterable
+print(maxheap)
+```
+### Min Heap
+```python
+from Pypeline.Pypes.MinHeap import MinHeap
+
+# Instantiate the Min Heap; the list can be passed in on instantiation or with a builtin method
+minheap = MinHeap()
+
+# Convert list of MaxHeap
+minheap.heapify([2, 4 , 10, 8])
+
+# Merge heap with another list
+minheap.merge([1, 5, 3, 7])
+
+# Pop smallest value from the heap
+_ = minheap.heappop()
+
+# Insert value (type int or float) into the Heap
+minheap.heappush(20)
+
+# Convert Heap into numpy array
+np_minheap = minheap.to_array()
+
+# Print the Min Heap Contents; Currently the Data Structure is not iterable
+print(minheap)
 ```
