@@ -29,6 +29,9 @@ class Stack:
 	def to_array(self):
 		return np.array(self.stack)
 
+	def to_list(self):
+		return self.stack
+
 if __name__ == "__main__":
 	stack = Stack()
 	stack.push(1)

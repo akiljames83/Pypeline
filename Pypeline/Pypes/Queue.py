@@ -17,7 +17,8 @@ class Queue:
 		if self.sizeQueue() < self.maxlen: 
 			self.queue.append(data)
 		else:
-			self.dequeue()
+			_ = self.dequeue()
+			del _
 			self.queue.append(data)
 
 	def dequeue(self):
@@ -30,6 +31,9 @@ class Queue:
 
 	def to_array(self):
 		return np.array(self.queue)
+
+	def to_list(self):
+		return self.queue
 
 if __name__ == "__main__":
 	queue = Queue()

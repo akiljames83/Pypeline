@@ -1,4 +1,5 @@
 # Implementing a linked list
+import numpy as np
 
 class Node(object): # inherits from object
 
@@ -97,6 +98,12 @@ class LinkedList(object):
 			previousNode.nextNode = currentNode.nextNode
 
 		self.linkedlist.pop(self.linkedlist.index(data))
+
+	def to_array(self):
+		return np.array(self.linkedlist)
+
+	def to_list(self):
+		return self.linkedlist
 
 if __name__ == "__main__":
 	# Testing our linkedList
