@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     name = "python-pypeline",
     url = "https://github.com/akiljames83/Pypeline",
-    version = "0.3.1",
+    version = "0.3.2",
     install_requires = ['docutils>=0.3','numpy>=0.1'],
 
     # metadata for upload to PyPI
