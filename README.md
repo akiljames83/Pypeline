@@ -29,7 +29,7 @@ To test install, run the following line of code:
 *   Trie
 *   Ternary Search Tree
 ----------------------
-## A Simple Exam
+## Sample Implementations
 
 ### AVL Tree
 ```python
