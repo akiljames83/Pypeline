@@ -131,7 +131,7 @@ class BST(object):
 		if node.rightChild:
 			self.inOrder(node.rightChild) # same thing
 
-	def PeOrderTraversal(self):
+	def preOrderTraversal(self):
 		if self.root: # if the root node exists
 			self.PreOrder(self.root)
 
@@ -144,7 +144,7 @@ class BST(object):
 		if node.rightChild:
 			self.PreOrder(node.rightChild) # same thing
 
-	def PostOrderTraversal(self):
+	def postOrderTraversal(self):
 		if self.root: # if the root node exists
 			self.PostOrder(self.root)
 
