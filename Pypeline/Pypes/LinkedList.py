@@ -48,6 +48,7 @@ class LinkedList(object):
 			# brings us to last item
 
 		actualNode.nextNode = newNode
+		self.linkedlist.append(data)
 
 	# checks size of the ll; O(1) time complexity
 	def getSize(self): 
@@ -94,6 +95,7 @@ class LinkedList(object):
 		else: # if not at the head
 			# change the pointer
 			previousNode.nextNode = currentNode.nextNode
+
 		self.linkedlist.pop(self.linkedlist.index(data))
 
 if __name__ == "__main__":

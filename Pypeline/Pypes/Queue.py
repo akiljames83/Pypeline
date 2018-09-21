@@ -14,7 +14,7 @@ class Queue:
 
 	# # Main Methods: Enqueue Dequeue Peel
 	def enqueue(self,data):
-		if self.sizeQueue() < maxlen: 
+		if self.sizeQueue() < self.maxlen: 
 			self.queue.append(data)
 		else:
 			self.dequeue()

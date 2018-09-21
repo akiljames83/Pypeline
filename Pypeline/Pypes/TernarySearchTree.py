@@ -15,7 +15,7 @@ class TST(object):
 		self.rootNode = None
 
 	def put(self,key,value):
-		assert (isinstance(key, string))
+		assert (isinstance(key, basestring))
 		self.rootNode = self.putItem(self.rootNode, key, value, 0)
 
 	def putItem(self, node, key, value, index): # key -> the string; index -> index of string
