@@ -2,14 +2,14 @@
 This is a python library for easy implementation of Data Structures and Algorithms. In future iterations, this library will include plugins for Data Analysis and Machine Learning, specifically for data collection and manipulation.
 
 ## Future Work
-On next iteration of pypeline, we plan on making an easy way to pass python data structures to files to be read for R reading and graphing.
+On the next iteration of Pypeline, we will release a method to pass Python Data Structures to files seamless integration with R graphing plugins.
 
 ## Installation
 Install Pypeline v0.3.2 using [pip](https://pip.pypa.io/en/stable/quickstart/):
 
 `pip install python-pypeline`
 
-If version installed is <=0.3.1 then you need to upgrade the version Pypeline:
+If version installed is <=0.3.1 then you need to upgrade to the latest version of Pypeline:
 
 `pip install python-pypeline --upgrade`
 
@@ -80,7 +80,7 @@ from Pypeline.Pypes.MaxHeap import MaxHeap
 # Instantiate the Max Heap; the list can be passed in on instantiation or with a builtin method
 maxheap = MaxHeap()
 
-# Convert list of MaxHeap
+# Convert list to MaxHeap
 maxheap.heapify([2, 4 , 10, 8])
 
 # Merge heap with another list
@@ -92,7 +92,7 @@ _ = maxheap.heappop()
 # Insert value (type int or float) into the Heap
 maxheap.heappush(20)
 
-# Convert Heap into numpy array
+# Convert heap into numpy array
 np_maxheap = maxheap.to_array()
 
 # Print the Max Heap Contents; Currently the Data Structure is not iterable
@@ -105,7 +105,7 @@ from Pypeline.Pypes.MinHeap import MinHeap
 # Instantiate the Min Heap; the list can be passed in on instantiation or with a builtin method
 minheap = MinHeap()
 
-# Convert list of MaxHeap
+# Convert list to MinHeap
 minheap.heapify([2, 4 , 10, 8])
 
 # Merge heap with another list
@@ -117,7 +117,7 @@ _ = minheap.heappop()
 # Insert value (type int or float) into the Heap
 minheap.heappush(20)
 
-# Convert Heap into numpy array
+# Convert heap into numpy array
 np_minheap = minheap.to_array()
 
 # Print the Min Heap Contents; Currently the Data Structure is not iterable
