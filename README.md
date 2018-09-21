@@ -7,11 +7,11 @@ On next iteration of pypeline, we plan on making an easy way to pass python data
 ## Installation
 Install Pypeline v0.3.2 using [pip](https://pip.pypa.io/en/stable/quickstart/):
 
-`<pip install pyptho-pypeline>`
+`<pip install python-pypeline>`
 
 If version installed is <=0.3.1 then you need to upgrade the version Pypeline:
 
-`<pip install pyptho-pypeline --upgrade>`
+`<pip install python-pypeline --upgrade>`
 
 ## Data Structures Implemented
 *   AVL Tree
@@ -29,7 +29,7 @@ If version installed is <=0.3.1 then you need to upgrade the version Pypeline:
 ## A Simple Exam
 
 ### AVL Tree's
-```
+```python
 # Instantiate AVL Tree
 avl = AVL()
 
