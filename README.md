@@ -2,7 +2,7 @@
 This is a python library for easy implementation of Data Structures and Algorithms. In future iterations, this library will include plugins for Data Analysis and Machine Learning, specifically for data collection and manipulation.
 
 ## Future Work
-On the next iteration of Pypeline, we will release a method to pass Python Data Structures to files seamless integration with R graphing plugins.
+On the next iteration of Pypeline, we will release a method to pass Python Data Structures to files for seamless integration with R graphing plugins.
 
 ## Installation
 Install Pypeline v0.3.2 using [pip](https://pip.pypa.io/en/stable/quickstart/):
