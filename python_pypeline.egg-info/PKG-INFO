@@ -1,11 +1,16 @@
 Metadata-Version: 1.0
 Name: python-pypeline
-Version: 0.1.0
+Version: 0.3.1
 Summary: This is a package which will allow for easy implementation of basic Data Structures.
 Home-page: https://github.com/akiljames83/Pypeline
 Author: Akil Hamilton
 Author-email: akil.james83@gmail.com
-License: PSF
-Description: UNKNOWN
+License: MIT
+Description: # Pypeline
+        This is a python library for easy implementation of Data Structures and Algorithms. In future iterations, this library will include plugins for Data Analysis and Machine Learning, specifically for data collection and manipulation.
+        
+        # Future Work
+        On next iteration of pypeline, we plan on making an easy way to pass python data structures to files to be read for R reading and graphing.
+        
 Keywords: data structures implementation
 Platform: UNKNOWN
