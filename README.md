@@ -56,7 +56,7 @@ from Pypeline.Pypes.BinarySearchTree import BST
 # Instantiate Binary Search Tree
 bst = BST()
 
-# Add Nodes to the Tree; the tree will automatically balance itself
+# Add Nodes to the Tree; the tree will NOT balance itself
 for i in range(10):
   bst.insert(i)
 
