@@ -1,45 +1,48 @@
-## Stack Implementation
-## Array representation -> LIFO Structure
+"""
+Implementation of the Stack Data Structure
+
+N.B:
+    - Array representation -> LIFO Structure
+
+"""
+
+from typing import Any, List, Optional
+
 import numpy as np
 
 class Stack:
+    """
+    Implementation of the Stack Data Structure (https://en.wikipedia.org/wiki/Stack_(abstract_data_type))
 
-	def __init__(self):
-		self.stack = []
+    An abstract data type that serves as a collection of elements, with two main principal operations: push and pop
+    from the top of the list (most recent values).
+    """
 
-	def isEmpty(self):
-		return self.stack == []
+    def __init__(self) -> None:
+        self.stack: List[Any] = []
 
-	def sizeStack(self):
-		return len(self.stack)
+    def isEmpty(self) -> bool:
+        return self.stack == []
 
-	# 3 main methods in a stack! Push, Pop and Seek
-	def push(self,data):
-		self.stack.append(data)
+    def sizeStack(self) -> int:
+        return len(self.stack)
 
-	def pop(self):
-		data = self.stack[-1]
-		#self.stack = self.stack[:-1]
-		del self.stack[-1]
-		return data
+    # 3 main methods in a stack! Push, Pop and Peek
+    def push(self, data: Any) -> None:
+        self.stack.append(data)
 
-	def peek(self):
-		return self.stack[-1]
+    def pop(self) -> Any:
+        data = self.stack[-1]
+        #self.stack = self.stack[:-1]
+        del self.stack[-1]
+        return data
 
-	def to_array(self):
-		return np.array(self.stack)
+    def peek(self) -> Any:
+        return self.stack[-1]
 
-if __name__ == "__main__":
-	stack = Stack()
-	stack.push(1)
-	stack.push(2)
-	stack.push(3)
-	stack.push(5)
-	print("Size of the stack is:",stack.sizeStack())
-	print("Popped:",stack.pop())
-	print("Popped:",stack.pop())
-	print("Size of the stack is:",stack.sizeStack())
-	print("Peek:",stack.peek())
-	print("Size of the stack is:",stack.sizeStack())
+    def to_array(self) -> Any:
+        return np.array(self.stack)
 
+    def to_list(self) -> List[Any]:
+        return self.stack
 

@@ -5,22 +5,29 @@ This is a python library for easy implementation of Data Structures and Algorith
 On the next iteration of Pypeline, we will release a method to pass Python Data Structures to files for seamless integration with R graphing plugins.
 
 ## Installation
-Install Pypeline v0.3.2 using [pip](https://pip.pypa.io/en/stable/quickstart/):
+Install Pypeline v1.0.1 using [pip](https://pip.pypa.io/en/stable/quickstart/):
 
-`pip install python-pypeline`
+```bash
+$ pip install python-pypeline
+```
 
-If version installed is <=0.3.1 then you need to upgrade to the latest version of Pypeline:
+If version installed is <= v1.0.1 then you need to upgrade to the latest version of Pypeline:
 
-`pip install python-pypeline --upgrade`
+```bash
+$ pip install python-pypeline --upgrade
+```
 
 To test install, run the following line of code:
 
-`import Pypeline`
+```python
+>>> import Pypeline
+```
 
 ## Development
 Run all scripts from within the `Pypeline` folder as follows:
+
 ```bash
-Pypeline$ ./scripts/run_tests.sh
+$ ./scripts/run_tests.sh
 ```
 
 ## Data Structures Implemented

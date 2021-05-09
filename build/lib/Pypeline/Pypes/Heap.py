@@ -1,84 +1,114 @@
-## Implementation of the heap
+"""
+Implementation of the heap
+
+"""
+
+from typing import ClassVar, List
 
 class Heap(object):
-	# Class constant variables can be assigned this way
-	HEAP_SIZE = 10
+    """ 
+    Implementation of a Heap (https://en.wikipedia.org/wiki/Heap_(data_structure))
+      
+    Attributes:\n
+        heap: the underlying list data sturcture for the heap
+        currentPosition: used to keep track of the index in the heap
+    """
 
-	def __init__(self,size=10):
-		Heap.HEAP_SIZE = size
-		self.heap = [0]*Heap.HEAP_SIZE
-		self.currentPosition = -1
+    # Class constant variables can be assigned this way
+    HEAP_SIZE: ClassVar[int] = 10
 
-	def insert(self,item):
+    def __init__(self, size: int=10) -> None:
+        """ 
+        Constructor of the Heap class
 
-		if self.isFull():
-			print("Heap is full...")
-			return
+        Parameters:\n
+            size: desired size of the Heap
+        """
+        Heap.HEAP_SIZE = size
+        self.heap: List[int] = [0]*Heap.HEAP_SIZE
+        self.currentPosition: int = -1
 
-		else:
-			self.currentPosition += 1
-			self.heap[self.currentPosition] = item
-			self.fixUp(self.currentPosition) # reheap the heap
+    def insert(self, item: int) -> None:
+        """ 
+        Public method used to insert an item into the Heap
 
-	def fixUp(self, index):
-		parentIndex = int((index-1)/2)
+        Parameters:\n
+            item: the data to be added to the heap
+        """
+        if self.isFull():
+            print("Heap is full...")
+            return
 
-		while parentIndex >= 0 and self.heap[parentIndex] < self.heap[index]:
-			temp = self.heap[parentIndex]
-			self.heap[parentIndex] = self.heap[index]
-			self.heap[index] = temp
-			parentIndex = int((index-1)/2) # from current move up
+        else:
+            self.currentPosition += 1
+            self.heap[self.currentPosition] = item
+            self.__fixUp(self.currentPosition) # reheap the heap
 
-	def heapSort(self):
+    def heapSort(self) -> None:
+        """ 
+        Public method used to sort the heap
+        """
+        for i in range(self.currentPosition+1):
+            temp = self.heap[0]
+            print("%d" % temp)
+            self.heap[0] = self.heap[self.currentPosition - i]
+            self.heap[self.currentPosition] = temp
+            # fix down 
+            self.__fixDown(0,self.currentPosition-i-1)
 
-		for i in range(self.currentPosition+1):
-			temp = self.heap[0]
-			print("%d" % temp)
-			self.heap[0] = self.heap[self.currentPosition - i]
-			self.heap[self.currentPosition] = temp
-			# fix down 
-			self.fixDown(0,self.currentPosition-i-1)
+    def isFull(self) -> bool:
+        """ 
+        Public method used to determine if the heap is full
+        """
+        if self.currentPosition + 1 == Heap.HEAP_SIZE:
+            return True
+        else:
+            return False
 
-	def fixDown(self,index,upto):
+    def __fixUp(self, index: int) -> None:
+        """ 
+        Private method used to reheap the heap during insertion
 
-		while index <= upto:
-			leftChild = 2*index +1
-			rightChild = 2*index +2
+        Parameters:\n
+            index: the index of the newly added data
+        """
+        parentIndex = int((index-1)/2)
 
-			if leftChild < upto:
-				childToSwap = None
+        while parentIndex >= 0 and self.heap[parentIndex] < self.heap[index]:
+            temp = self.heap[parentIndex]
+            self.heap[parentIndex] = self.heap[index]
+            self.heap[index] = temp
+            parentIndex = int((index-1)/2) # from current move up
 
-				if rightChild > upto:
-					childToSwap = leftChild
-				else:
-					if self.heap[leftChild] > self.heap[rightChild]:
-						childToSwap = leftChild
-					else:
-						childToSwap = rightChild
-				if self.heap[index] < self.heap[childToSwap]:
-					temp = self.heap[index]
-					self.heap[index] = self.heap[childToSwap]
-					self.heap[childToSwap] = temp
-				else:
-					break
+    def __fixDown(self, index: int, upto: int) -> None:
+        """ 
+        Private method used to reheap the heap during heap sort
 
-				index = childToSwap
-			else:
-				break
+        Parameters:\n
+            index: the index of the newly added data
+            upto: end index for the heap down operation
+        """
+        while index <= upto:
+            leftChild = 2*index +1
+            rightChild = 2*index +2
 
+            if leftChild < upto:
+                childToSwap = None
 
-	def isFull(self):
-		if self.currentPosition == Heap.HEAP_SIZE:
-			return True
-		else:
-			return False
+                if rightChild > upto:
+                    childToSwap = leftChild
+                else:
+                    if self.heap[leftChild] > self.heap[rightChild]:
+                        childToSwap = leftChild
+                    else:
+                        childToSwap = rightChild
+                if self.heap[index] < self.heap[childToSwap]:
+                    temp = self.heap[index]
+                    self.heap[index] = self.heap[childToSwap]
+                    self.heap[childToSwap] = temp
+                else:
+                    break
 
-if __name__ == "__main__":
-	heap = Heap()
-	heap.insert(10)
-	heap.insert(-20)
-	heap.insert(0)
-	heap.insert(2)
-	#heap.insert(30)
-
-	heap.heapSort()
+                index = childToSwap
+            else:
+                break

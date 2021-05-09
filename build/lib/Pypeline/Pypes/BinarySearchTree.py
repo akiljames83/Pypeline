@@ -1,181 +1,272 @@
-## Implementation of the binary search tree
-class Node(object):
+"""
+Implementation of the binary search tree
 
-	def __init__(self,data):
-		assert (isinstance(data, int) or isinstance(data,float))
-		self.data = data
-		self.leftChild = None
-		self.rightChild = None
+"""
+
+from typing import Optional, Union
+
+class Node(object):
+    """ 
+    This is a custom node class for the Binary Search Tree
+      
+    Attributes:\n
+        data: The data to be stored in the node
+        rightChild: The right child of the current node
+        leftChild: The left child of the current node 
+    """
+
+    def __init__(self, data: Union[int, float]) -> None:
+        """ 
+        Constructor of the Node class
+
+        Parameters:\n
+            data: the data to be stored in the Node 
+        """
+        assert (isinstance(data, int) or isinstance(data,float))
+        self.data: Union[int, float] = data
+        self.leftChild: Optional[Node] = None
+        self.rightChild: Optional[Node] = None
 
 class BST(object):
+    """ 
+    Implementation of the Binary Search Tree (https://en.wikipedia.org/wiki/Binary_search_tree)
 
-	# All items on the left are smaller than given node &
-	# all on the right are larger than the given node
-	def __init__(self):
-		self.root = None
-		self.size = 0
+    All items on the left are smaller than given node &
+    all on the right are larger than the given node
+      
+    Attributes:\n
+        root: The root node of the BST Tree
+        size: counter for the number of items inside the tree
+    """
 
-	def getSize(self):
-		return self.size
+    def __init__(self) -> None:
+        """ 
+        Constructor of the BST class
+        """
+        self.root: Optional[Union[int, float]] = None
+        self.size: int = 0
 
-	def insert(self,data):
-		# if root node isnt cyrrently defined
-		assert (isinstance(data, int) or isinstance(data,float))
-		if not self.root:
-			self.root = Node(data) # instantiate the root of BTS
-			self.size += 1
-		else:
-			self.insertNode(data,self.root)
+    def getSize(self) -> int:
+        """ 
+        Method used to return the size of the BST
+        """
+        return self.size
 
-	# Running time complexity of O (logN) -> Only if tree is balanced
-	def insertNode(self,data,node):
-		assert (isinstance(data, int) or isinstance(data,float))
-		if data < node.data:
-			if node.leftChild: # if the node has a left child
-				# recursive call 
-				self.insertNode(data,node.leftChild)
-			else:
-				node.leftChild = Node(data)
-				self.size += 1
-		else:
-			if node.rightChild: # if the node has a right child
-				self.insertNode(data,node.rightChild)
-			else:
-				node.rightChild = Node(data)
-				self.size +=1
+    def insert(self, data: Union[int, float]) -> None:
+        """ 
+        Public method used to insert data into the BST tree
+
+        Parameters:\n
+            data: the data to be added to the tree
+        """
+        assert (isinstance(data, int) or isinstance(data,float))
+
+        # if root node isnt currently defined
+        if not self.root:
+            self.root = Node(data) # instantiate the root of BTS
+            self.size += 1
+        else:
+            self.__insertNode(data, self.root)
+
+    # Running time complexity of O (logN) -> Only if tree is balanced
+    def __insertNode(self, data: Union[int, float], node: Node) -> None:
+        """ 
+        Private method used to insert data into the BST tree
+
+        Parameters:\n
+            data: the data to be added to the tree
+            node: the root node of the tree
+        """
+        assert (isinstance(data, int) or isinstance(data,float))
+
+        if data < node.data:
+            if node.leftChild: # if the node has a left child
+                # recursive call 
+                self.__insertNode(data,node.leftChild)
+            else:
+                node.leftChild = Node(data)
+                self.size += 1
+        else:
+            if node.rightChild: # if the node has a right child
+                self.__insertNode(data,node.rightChild)
+            else:
+                node.rightChild = Node(data)
+                self.size +=1
 
 
-	def remove(self,data):
-		assert (isinstance(data, int) or isinstance(data,float))
-		if self.root: # if the root exists -> are there nodes
-			self.root = self.removeData(data,self.root)
+    def remove(self, data: Union[int, float]) -> None:
+        """ 
+        Public method used to remove data from the BST tree
 
-	# Using the predecessor method of removing data
-	def removeData(self,data,node):
-		assert (isinstance(data, int) or isinstance(data,float))
-		if not node: # this is the base case my guy duuhh
-			return node
+        Parameters:\n
+            data: the data to be removed from the tree
+        """
+        assert (isinstance(data, int) or isinstance(data,float))
+        if self.root: # if the root exists -> are there nodes
+            self.root = self.__removeData(data,self.root)
 
-		if data < node.data: # if smaller
-			node.leftChild =  self.removeData(data,node.leftChild)
-		elif data > node.data:
-			node.rightChild = self.removeData(data,node.rightChild)
-		else:
-			# This means we are at the node we want to remove
-			# There are 3 cases for this
+    # Using the predecessor method of removing data
+    def __removeData(self, data: Union[int, float], node: Optional[Node]) -> Optional[Node]:
+        """ 
+        Private method used to remove data from the BST tree
 
-			# 1: if there are no children -> Leaf Node
-			if not node.leftChild and not node.rightChild:
-				#print("Removing leaf node...")
-				del node
-				return None
-			elif not node.leftChild: # no left but would have right ^
-				#print("Removing node with right child...")
-				rightChild = node.rightChild
-				del node
-				return rightChild
-			elif not node.rightChild: # no right child
-				#print("Removing node with left child...")
-				leftChild = node.leftChild
-				del node
-				return leftChild
-			else:
-				#print("Removing node with two children...")
-				predecessor = self.getPredecessor(node.leftChild)
-				node.data = predecessor.data
-				# then get rid of the predecessor starting from left child
-				# have to call remove node recursively because we will end up with
-				# one of the two previous situations
-				node.leftChild = self.removeData(predecessor.data,node.leftChild)
-		return node 				
+        Parameters:\n
+            data: the data to be removed to the tree
+            node: the root node of the tree
+        """
+        assert (isinstance(data, int) or isinstance(data,float))
 
-	def getPredecessor(self,node): # get largest value in left subtree
-		if not node.rightChild:
-			return node
-		return self.getPredecessor(node.rightChild)
+        if not node: # this is the base case my guy duuhh
+            return node
 
-	def getMinValue(self):
-		if self.root: # if there are nodes in the BST
-			return self.getMin(self.root)
-		else:
-			return None
+        if data < node.data: # if smaller
+            node.leftChild =  self.__removeData(data,node.leftChild)
+        elif data > node.data:
+            node.rightChild = self.__removeData(data,node.rightChild)
+        else:
+            # This means we are at the node we want to remove
+            # There are 3 cases for this
 
-	def getMin(self,node):
-		if node.leftChild: # if the left child node exists
-			return self.getMin(node.leftChild) # recursively call min
-		else:
-			return node.data
+            # 1: if there are no children -> Leaf Node
+            if not node.leftChild and not node.rightChild:
+                #print("Removing leaf node...")
+                del node
+                return None
+            elif not node.leftChild: # no left but would have right ^
+                #print("Removing node with right child...")
+                rightChild = node.rightChild
+                del node
+                return rightChild
+            elif not node.rightChild: # no right child
+                #print("Removing node with left child...")
+                leftChild = node.leftChild
+                del node
+                return leftChild
+            else:
+                #print("Removing node with two children...")
+                predecessor = self.__getPredecessor(node.leftChild)
+                node.data = predecessor.data
+                # then get rid of the predecessor starting from left child
+                # have to call remove node recursively because we will end up with
+                # one of the two previous situations
+                node.leftChild = self.__removeData(predecessor.data,node.leftChild)
+        return node                 
 
-	def getMaxValue(self):
-		if self.root:
-			return self.getMax(self.root)
-		else:
-			return None
+    def __getPredecessor(self, node: Node) -> Node: # get largest value in left subtree
+        """ 
+        Private method to get the largest value in a subtree
 
-	def getMax(self,node):
-		if node.rightChild: # again if the right node exists
-			return self.getMax(node.rightChild) #recursively call func
-		else:
-			return node.data
+        Parameters:\n
+            node: the reference node used to find largest value in its subtree
+        """
+        if not node.rightChild:
+            return node
+        return self.__getPredecessor(node.rightChild)
 
-	def inOrderTraversal(self):
-		if self.root: # if the root node exists
-			self.inOrder(self.root)
+    def getMinValue(self) -> Optional[Union[int, float]]:
+        """ 
+        Public method used to get the smallest value in the BST
+        """
+        if self.root: # if there are nodes in the BST
+            return self.__getMin(self.root)
+        else:
+            return None
 
-	def inOrder(self,node):
-		if node.leftChild: # if the left child exists
-			self.inOrder(node.leftChild) # will evetually print it, if it exists
-		
-		print("%d" % node.data)
+    def __getMin(self, node: Node) -> Union[int, float]:
+        """ 
+        Private method used to get the smallest value in the BST
 
-		if node.rightChild:
-			self.inOrder(node.rightChild) # same thing
+        Parameters:\n
+            node: the BST's root node
+        """
+        if node.leftChild: # if the left child node exists
+            return self.__getMin(node.leftChild) # recursively call min
+        else:
+            return node.data
 
-	def PeOrderTraversal(self):
-		if self.root: # if the root node exists
-			self.PreOrder(self.root)
+    def getMaxValue(self) -> Optional[Union[int, float]]:
+        """ 
+        Public method used to get the largest value in the BST
+        """
+        if self.root:
+            return self.__getMax(self.root)
+        else:
+            return None
 
-	def PreOrder(self,node):
-		print("%d" % node.data)
+    def __getMax(self, node: Node) -> Union[int, float]:
+        """ 
+        Private method used to get the largest value in the BST
 
-		if node.leftChild: # if the left child exists
-			self.PreOrder(node.leftChild) # will evetually print it, if it exists
+        Parameters:\n
+            node: the BST's root node
+        """
+        if node.rightChild: # again if the right node exists
+            return self.__getMax(node.rightChild) #recursively call func
+        else:
+            return node.data
 
-		if node.rightChild:
-			self.PreOrder(node.rightChild) # same thing
+    def inOrderTraversal(self) -> None:
+        """ 
+        Public method used to perform an inOrderTraversal
+        """
+        if self.root: # if the root node exists
+            self.__inOrder(self.root)
 
-	def PostOrderTraversal(self):
-		if self.root: # if the root node exists
-			self.PostOrder(self.root)
+    def __inOrder(self, node: None) -> None:
+        """ 
+        Private method used to perform an inOrderTraversal
 
-	def PostOrder(self,node):
-		if node.leftChild: # if the left child exists
-			self.PostOrder(node.leftChild) # will evetually print it, if it exists
+        Parameters:\n
+            node: the BST's root node
+        """
+        if node.leftChild: # if the left child exists
+            self.__inOrder(node.leftChild) # will evetually print it, if it exists
+        
+        print("%d" % node.data)
 
-		if node.rightChild:
-			self.PostOrder(node.rightChild) # same thing
+        if node.rightChild:
+            self.__inOrder(node.rightChild) # same thing
 
-		print("%d" % node.data)
+    def preOrderTraversal(self) -> None:
+        """ 
+        Public method used to perform an preOrderTraversal
+        """
+        if self.root: # if the root node exists
+            self.__preOrder(self.root)
 
-if __name__ == "__main__":
-	bst = BST()
-	# Also works with Characters, strings, doubles etc
-	bst.insert(10)
-	bst.insert(3)
-	bst.insert(20)
-	bst.insert(12)
-	bst.insert(1)
-	bst.insert(5)
-	bst.insert(30)
-	bst.insert(21)
+    def __preOrder(self, node: Node) -> None:
+        """ 
+        Private method used to perform an preOrderTraversal
 
-	print("Min Value: {}".format(bst.getMinValue()))
-	print("Max Value: {}".format(bst.getMaxValue()))
-	bst.inOrderTraversal()
+        Parameters:\n
+            node: the BST's root node
+        """
+        print("%d" % node.data)
 
-	bst.remove(30)
-	bst.remove(21)
-	bst.remove(1)
-	bst.remove(10)
-	bst.inOrderTraversal()
+        if node.leftChild: # if the left child exists
+            self.__preOrder(node.leftChild) # will evetually print it, if it exists
 
+        if node.rightChild:
+            self.__preOrder(node.rightChild) # same thing
+
+    def postOrderTraversal(self) -> None:
+        """ 
+        Public method used to perform an postOrderTraversal
+        """
+        if self.root: # if the root node exists
+            self.__postOrder(self.root)
+
+    def __postOrder(self, node: Node) -> None:
+        """ 
+        Private method used to perform an postOrderTraversal
+
+        Parameters:\n
+            node: the BST's root node
+        """
+        if node.leftChild: # if the left child exists
+            self.__postOrder(node.leftChild) # will evetually print it, if it exists
+
+        if node.rightChild:
+            self.__postOrder(node.rightChild) # same thing
+
+        print("%d" % node.data)

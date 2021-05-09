@@ -1,6 +1,6 @@
-Metadata-Version: 1.0
+Metadata-Version: 2.1
 Name: python-pypeline
-Version: 0.3.2
+Version: 1.0.1
 Summary: This is a package which will allow for easy implementation of basic Data Structures.
 Home-page: https://github.com/akiljames83/Pypeline
 Author: Akil Hamilton
@@ -13,22 +13,29 @@ Description: # Pypeline
         On the next iteration of Pypeline, we will release a method to pass Python Data Structures to files for seamless integration with R graphing plugins.
         
         ## Installation
-        Install Pypeline v0.3.2 using [pip](https://pip.pypa.io/en/stable/quickstart/):
+        Install Pypeline v1.0.1 using [pip](https://pip.pypa.io/en/stable/quickstart/):
         
-        `pip install python-pypeline`
+        ```bash
+        $ pip install python-pypeline
+        ```
         
-        If version installed is <=0.3.1 then you need to upgrade to the latest version of Pypeline:
+        If version installed is <= v1.0.1 then you need to upgrade to the latest version of Pypeline:
         
-        `pip install python-pypeline --upgrade`
+        ```bash
+        $ pip install python-pypeline --upgrade
+        ```
         
         To test install, run the following line of code:
         
-        `import Pypeline`
+        ```python
+        >>> import Pypeline
+        ```
         
         ## Development
         Run all scripts from within the `Pypeline` folder as follows:
+        
         ```bash
-        Pypeline$ ./scripts/run_tests.sh
+        $ ./scripts/run_tests.sh
         ```
         
         ## Data Structures Implemented
@@ -276,3 +283,4 @@ Description: # Pypeline
         ```
 Keywords: data structures implementation
 Platform: UNKNOWN
+Description-Content-Type: text/markdown
