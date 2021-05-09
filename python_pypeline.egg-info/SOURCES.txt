@@ -4,12 +4,14 @@ Pypeline/__init__.py
 Pypeline/utils.py
 Pypeline/Pypes/AVLTree.py
 Pypeline/Pypes/BinarySearchTree.py
+Pypeline/Pypes/DoublyLinkedList.py
 Pypeline/Pypes/Heap.py
 Pypeline/Pypes/LinkedList.py
 Pypeline/Pypes/MaxHeap.py
 Pypeline/Pypes/MinHeap.py
 Pypeline/Pypes/Node.py
 Pypeline/Pypes/Queue.py
+Pypeline/Pypes/RedBlackBST.py
 Pypeline/Pypes/Stack.py
 Pypeline/Pypes/TernarySearchTree.py
 Pypeline/Pypes/Trie.py

@@ -1,0 +1,822 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>Pypeline.Pypes.BinarySearchTree API documentation</title>
+<meta name="description" content="Implementation of the binary search tree" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>Pypeline.Pypes.BinarySearchTree</code></h1>
+</header>
+<section id="section-intro">
+<p>Implementation of the binary search tree</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+Implementation of the binary search tree
+
+&#34;&#34;&#34;
+
+from typing import Optional, Union
+
+class Node(object):
+    &#34;&#34;&#34; 
+    This is a custom node class for the Binary Search Tree
+      
+    Attributes:\n
+        data: The data to be stored in the node
+        rightChild: The right child of the current node
+        leftChild: The left child of the current node 
+    &#34;&#34;&#34;
+
+    def __init__(self, data: Union[int, float]) -&gt; None:
+        &#34;&#34;&#34; 
+        Constructor of the Node class
+
+        Parameters:\n
+            data: the data to be stored in the Node 
+        &#34;&#34;&#34;
+        assert (isinstance(data, int) or isinstance(data,float))
+        self.data: Union[int, float] = data
+        self.leftChild: Optional[Node] = None
+        self.rightChild: Optional[Node] = None
+
+class BST(object):
+    &#34;&#34;&#34; 
+    Implementation of the Binary Search Tree (https://en.wikipedia.org/wiki/Binary_search_tree)
+
+    All items on the left are smaller than given node &amp;
+    all on the right are larger than the given node
+      
+    Attributes:\n
+        root: The root node of the BST Tree
+        size: counter for the number of items inside the tree
+    &#34;&#34;&#34;
+
+    def __init__(self) -&gt; None:
+        &#34;&#34;&#34; 
+        Constructor of the BST class
+        &#34;&#34;&#34;
+        self.root: Optional[Union[int, float]] = None
+        self.size: int = 0
+
+    def getSize(self) -&gt; int:
+        &#34;&#34;&#34; 
+        Method used to return the size of the BST
+        &#34;&#34;&#34;
+        return self.size
+
+    def insert(self, data: Union[int, float]) -&gt; None:
+        &#34;&#34;&#34; 
+        Public method used to insert data into the BST tree
+
+        Parameters:\n
+            data: the data to be added to the tree
+        &#34;&#34;&#34;
+        assert (isinstance(data, int) or isinstance(data,float))
+
+        # if root node isnt currently defined
+        if not self.root:
+            self.root = Node(data) # instantiate the root of BTS
+            self.size += 1
+        else:
+            self.__insertNode(data, self.root)
+
+    # Running time complexity of O (logN) -&gt; Only if tree is balanced
+    def __insertNode(self, data: Union[int, float], node: Node) -&gt; None:
+        &#34;&#34;&#34; 
+        Private method used to insert data into the BST tree
+
+        Parameters:\n
+            data: the data to be added to the tree
+            node: the root node of the tree
+        &#34;&#34;&#34;
+        assert (isinstance(data, int) or isinstance(data,float))
+
+        if data &lt; node.data:
+            if node.leftChild: # if the node has a left child
+                # recursive call 
+                self.__insertNode(data,node.leftChild)
+            else:
+                node.leftChild = Node(data)
+                self.size += 1
+        else:
+            if node.rightChild: # if the node has a right child
+                self.__insertNode(data,node.rightChild)
+            else:
+                node.rightChild = Node(data)
+                self.size +=1
+
+
+    def remove(self, data: Union[int, float]) -&gt; None:
+        &#34;&#34;&#34; 
+        Public method used to remove data from the BST tree
+
+        Parameters:\n
+            data: the data to be removed from the tree
+        &#34;&#34;&#34;
+        assert (isinstance(data, int) or isinstance(data,float))
+        if self.root: # if the root exists -&gt; are there nodes
+            self.root = self.__removeData(data,self.root)
+
+    # Using the predecessor method of removing data
+    def __removeData(self, data: Union[int, float], node: Optional[Node]) -&gt; Optional[Node]:
+        &#34;&#34;&#34; 
+        Private method used to remove data from the BST tree
+
+        Parameters:\n
+            data: the data to be removed to the tree
+            node: the root node of the tree
+        &#34;&#34;&#34;
+        assert (isinstance(data, int) or isinstance(data,float))
+
+        if not node: # this is the base case my guy duuhh
+            return node
+
+        if data &lt; node.data: # if smaller
+            node.leftChild =  self.__removeData(data,node.leftChild)
+        elif data &gt; node.data:
+            node.rightChild = self.__removeData(data,node.rightChild)
+        else:
+            # This means we are at the node we want to remove
+            # There are 3 cases for this
+
+            # 1: if there are no children -&gt; Leaf Node
+            if not node.leftChild and not node.rightChild:
+                #print(&#34;Removing leaf node...&#34;)
+                del node
+                return None
+            elif not node.leftChild: # no left but would have right ^
+                #print(&#34;Removing node with right child...&#34;)
+                rightChild = node.rightChild
+                del node
+                return rightChild
+            elif not node.rightChild: # no right child
+                #print(&#34;Removing node with left child...&#34;)
+                leftChild = node.leftChild
+                del node
+                return leftChild
+            else:
+                #print(&#34;Removing node with two children...&#34;)
+                predecessor = self.__getPredecessor(node.leftChild)
+                node.data = predecessor.data
+                # then get rid of the predecessor starting from left child
+                # have to call remove node recursively because we will end up with
+                # one of the two previous situations
+                node.leftChild = self.__removeData(predecessor.data,node.leftChild)
+        return node                 
+
+    def __getPredecessor(self, node: Node) -&gt; Node: # get largest value in left subtree
+        &#34;&#34;&#34; 
+        Private method to get the largest value in a subtree
+
+        Parameters:\n
+            node: the reference node used to find largest value in its subtree
+        &#34;&#34;&#34;
+        if not node.rightChild:
+            return node
+        return self.__getPredecessor(node.rightChild)
+
+    def getMinValue(self) -&gt; Optional[Union[int, float]]:
+        &#34;&#34;&#34; 
+        Public method used to get the smallest value in the BST
+        &#34;&#34;&#34;
+        if self.root: # if there are nodes in the BST
+            return self.__getMin(self.root)
+        else:
+            return None
+
+    def __getMin(self, node: Node) -&gt; Union[int, float]:
+        &#34;&#34;&#34; 
+        Private method used to get the smallest value in the BST
+
+        Parameters:\n
+            node: the BST&#39;s root node
+        &#34;&#34;&#34;
+        if node.leftChild: # if the left child node exists
+            return self.__getMin(node.leftChild) # recursively call min
+        else:
+            return node.data
+
+    def getMaxValue(self) -&gt; Optional[Union[int, float]]:
+        &#34;&#34;&#34; 
+        Public method used to get the largest value in the BST
+        &#34;&#34;&#34;
+        if self.root:
+            return self.__getMax(self.root)
+        else:
+            return None
+
+    def __getMax(self, node: Node) -&gt; Union[int, float]:
+        &#34;&#34;&#34; 
+        Private method used to get the largest value in the BST
+
+        Parameters:\n
+            node: the BST&#39;s root node
+        &#34;&#34;&#34;
+        if node.rightChild: # again if the right node exists
+            return self.__getMax(node.rightChild) #recursively call func
+        else:
+            return node.data
+
+    def inOrderTraversal(self) -&gt; None:
+        &#34;&#34;&#34; 
+        Public method used to perform an inOrderTraversal
+        &#34;&#34;&#34;
+        if self.root: # if the root node exists
+            self.__inOrder(self.root)
+
+    def __inOrder(self, node: None) -&gt; None:
+        &#34;&#34;&#34; 
+        Private method used to perform an inOrderTraversal
+
+        Parameters:\n
+            node: the BST&#39;s root node
+        &#34;&#34;&#34;
+        if node.leftChild: # if the left child exists
+            self.__inOrder(node.leftChild) # will evetually print it, if it exists
+        
+        print(&#34;%d&#34; % node.data)
+
+        if node.rightChild:
+            self.__inOrder(node.rightChild) # same thing
+
+    def preOrderTraversal(self) -&gt; None:
+        &#34;&#34;&#34; 
+        Public method used to perform an preOrderTraversal
+        &#34;&#34;&#34;
+        if self.root: # if the root node exists
+            self.__preOrder(self.root)
+
+    def __preOrder(self, node: Node) -&gt; None:
+        &#34;&#34;&#34; 
+        Private method used to perform an preOrderTraversal
+
+        Parameters:\n
+            node: the BST&#39;s root node
+        &#34;&#34;&#34;
+        print(&#34;%d&#34; % node.data)
+
+        if node.leftChild: # if the left child exists
+            self.__preOrder(node.leftChild) # will evetually print it, if it exists
+
+        if node.rightChild:
+            self.__preOrder(node.rightChild) # same thing
+
+    def postOrderTraversal(self) -&gt; None:
+        &#34;&#34;&#34; 
+        Public method used to perform an postOrderTraversal
+        &#34;&#34;&#34;
+        if self.root: # if the root node exists
+            self.__postOrder(self.root)
+
+    def __postOrder(self, node: Node) -&gt; None:
+        &#34;&#34;&#34; 
+        Private method used to perform an postOrderTraversal
+
+        Parameters:\n
+            node: the BST&#39;s root node
+        &#34;&#34;&#34;
+        if node.leftChild: # if the left child exists
+            self.__postOrder(node.leftChild) # will evetually print it, if it exists
+
+        if node.rightChild:
+            self.__postOrder(node.rightChild) # same thing
+
+        print(&#34;%d&#34; % node.data)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="Pypeline.Pypes.BinarySearchTree.BST"><code class="flex name class">
+<span>class <span class="ident">BST</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Implementation of the Binary Search Tree (<a href="https://en.wikipedia.org/wiki/Binary_search_tree">https://en.wikipedia.org/wiki/Binary_search_tree</a>)</p>
+<p>All items on the left are smaller than given node &amp;
+all on the right are larger than the given node</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>root</code></strong></dt>
+<dd>The root node of the BST Tree</dd>
+<dt><strong><code>size</code></strong></dt>
+<dd>counter for the number of items inside the tree</dd>
+</dl>
+<p>Constructor of the BST class</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class BST(object):
+    &#34;&#34;&#34; 
+    Implementation of the Binary Search Tree (https://en.wikipedia.org/wiki/Binary_search_tree)
+
+    All items on the left are smaller than given node &amp;
+    all on the right are larger than the given node
+      
+    Attributes:\n
+        root: The root node of the BST Tree
+        size: counter for the number of items inside the tree
+    &#34;&#34;&#34;
+
+    def __init__(self) -&gt; None:
+        &#34;&#34;&#34; 
+        Constructor of the BST class
+        &#34;&#34;&#34;
+        self.root: Optional[Union[int, float]] = None
+        self.size: int = 0
+
+    def getSize(self) -&gt; int:
+        &#34;&#34;&#34; 
+        Method used to return the size of the BST
+        &#34;&#34;&#34;
+        return self.size
+
+    def insert(self, data: Union[int, float]) -&gt; None:
+        &#34;&#34;&#34; 
+        Public method used to insert data into the BST tree
+
+        Parameters:\n
+            data: the data to be added to the tree
+        &#34;&#34;&#34;
+        assert (isinstance(data, int) or isinstance(data,float))
+
+        # if root node isnt currently defined
+        if not self.root:
+            self.root = Node(data) # instantiate the root of BTS
+            self.size += 1
+        else:
+            self.__insertNode(data, self.root)
+
+    # Running time complexity of O (logN) -&gt; Only if tree is balanced
+    def __insertNode(self, data: Union[int, float], node: Node) -&gt; None:
+        &#34;&#34;&#34; 
+        Private method used to insert data into the BST tree
+
+        Parameters:\n
+            data: the data to be added to the tree
+            node: the root node of the tree
+        &#34;&#34;&#34;
+        assert (isinstance(data, int) or isinstance(data,float))
+
+        if data &lt; node.data:
+            if node.leftChild: # if the node has a left child
+                # recursive call 
+                self.__insertNode(data,node.leftChild)
+            else:
+                node.leftChild = Node(data)
+                self.size += 1
+        else:
+            if node.rightChild: # if the node has a right child
+                self.__insertNode(data,node.rightChild)
+            else:
+                node.rightChild = Node(data)
+                self.size +=1
+
+
+    def remove(self, data: Union[int, float]) -&gt; None:
+        &#34;&#34;&#34; 
+        Public method used to remove data from the BST tree
+
+        Parameters:\n
+            data: the data to be removed from the tree
+        &#34;&#34;&#34;
+        assert (isinstance(data, int) or isinstance(data,float))
+        if self.root: # if the root exists -&gt; are there nodes
+            self.root = self.__removeData(data,self.root)
+
+    # Using the predecessor method of removing data
+    def __removeData(self, data: Union[int, float], node: Optional[Node]) -&gt; Optional[Node]:
+        &#34;&#34;&#34; 
+        Private method used to remove data from the BST tree
+
+        Parameters:\n
+            data: the data to be removed to the tree
+            node: the root node of the tree
+        &#34;&#34;&#34;
+        assert (isinstance(data, int) or isinstance(data,float))
+
+        if not node: # this is the base case my guy duuhh
+            return node
+
+        if data &lt; node.data: # if smaller
+            node.leftChild =  self.__removeData(data,node.leftChild)
+        elif data &gt; node.data:
+            node.rightChild = self.__removeData(data,node.rightChild)
+        else:
+            # This means we are at the node we want to remove
+            # There are 3 cases for this
+
+            # 1: if there are no children -&gt; Leaf Node
+            if not node.leftChild and not node.rightChild:
+                #print(&#34;Removing leaf node...&#34;)
+                del node
+                return None
+            elif not node.leftChild: # no left but would have right ^
+                #print(&#34;Removing node with right child...&#34;)
+                rightChild = node.rightChild
+                del node
+                return rightChild
+            elif not node.rightChild: # no right child
+                #print(&#34;Removing node with left child...&#34;)
+                leftChild = node.leftChild
+                del node
+                return leftChild
+            else:
+                #print(&#34;Removing node with two children...&#34;)
+                predecessor = self.__getPredecessor(node.leftChild)
+                node.data = predecessor.data
+                # then get rid of the predecessor starting from left child
+                # have to call remove node recursively because we will end up with
+                # one of the two previous situations
+                node.leftChild = self.__removeData(predecessor.data,node.leftChild)
+        return node                 
+
+    def __getPredecessor(self, node: Node) -&gt; Node: # get largest value in left subtree
+        &#34;&#34;&#34; 
+        Private method to get the largest value in a subtree
+
+        Parameters:\n
+            node: the reference node used to find largest value in its subtree
+        &#34;&#34;&#34;
+        if not node.rightChild:
+            return node
+        return self.__getPredecessor(node.rightChild)
+
+    def getMinValue(self) -&gt; Optional[Union[int, float]]:
+        &#34;&#34;&#34; 
+        Public method used to get the smallest value in the BST
+        &#34;&#34;&#34;
+        if self.root: # if there are nodes in the BST
+            return self.__getMin(self.root)
+        else:
+            return None
+
+    def __getMin(self, node: Node) -&gt; Union[int, float]:
+        &#34;&#34;&#34; 
+        Private method used to get the smallest value in the BST
+
+        Parameters:\n
+            node: the BST&#39;s root node
+        &#34;&#34;&#34;
+        if node.leftChild: # if the left child node exists
+            return self.__getMin(node.leftChild) # recursively call min
+        else:
+            return node.data
+
+    def getMaxValue(self) -&gt; Optional[Union[int, float]]:
+        &#34;&#34;&#34; 
+        Public method used to get the largest value in the BST
+        &#34;&#34;&#34;
+        if self.root:
+            return self.__getMax(self.root)
+        else:
+            return None
+
+    def __getMax(self, node: Node) -&gt; Union[int, float]:
+        &#34;&#34;&#34; 
+        Private method used to get the largest value in the BST
+
+        Parameters:\n
+            node: the BST&#39;s root node
+        &#34;&#34;&#34;
+        if node.rightChild: # again if the right node exists
+            return self.__getMax(node.rightChild) #recursively call func
+        else:
+            return node.data
+
+    def inOrderTraversal(self) -&gt; None:
+        &#34;&#34;&#34; 
+        Public method used to perform an inOrderTraversal
+        &#34;&#34;&#34;
+        if self.root: # if the root node exists
+            self.__inOrder(self.root)
+
+    def __inOrder(self, node: None) -&gt; None:
+        &#34;&#34;&#34; 
+        Private method used to perform an inOrderTraversal
+
+        Parameters:\n
+            node: the BST&#39;s root node
+        &#34;&#34;&#34;
+        if node.leftChild: # if the left child exists
+            self.__inOrder(node.leftChild) # will evetually print it, if it exists
+        
+        print(&#34;%d&#34; % node.data)
+
+        if node.rightChild:
+            self.__inOrder(node.rightChild) # same thing
+
+    def preOrderTraversal(self) -&gt; None:
+        &#34;&#34;&#34; 
+        Public method used to perform an preOrderTraversal
+        &#34;&#34;&#34;
+        if self.root: # if the root node exists
+            self.__preOrder(self.root)
+
+    def __preOrder(self, node: Node) -&gt; None:
+        &#34;&#34;&#34; 
+        Private method used to perform an preOrderTraversal
+
+        Parameters:\n
+            node: the BST&#39;s root node
+        &#34;&#34;&#34;
+        print(&#34;%d&#34; % node.data)
+
+        if node.leftChild: # if the left child exists
+            self.__preOrder(node.leftChild) # will evetually print it, if it exists
+
+        if node.rightChild:
+            self.__preOrder(node.rightChild) # same thing
+
+    def postOrderTraversal(self) -&gt; None:
+        &#34;&#34;&#34; 
+        Public method used to perform an postOrderTraversal
+        &#34;&#34;&#34;
+        if self.root: # if the root node exists
+            self.__postOrder(self.root)
+
+    def __postOrder(self, node: Node) -&gt; None:
+        &#34;&#34;&#34; 
+        Private method used to perform an postOrderTraversal
+
+        Parameters:\n
+            node: the BST&#39;s root node
+        &#34;&#34;&#34;
+        if node.leftChild: # if the left child exists
+            self.__postOrder(node.leftChild) # will evetually print it, if it exists
+
+        if node.rightChild:
+            self.__postOrder(node.rightChild) # same thing
+
+        print(&#34;%d&#34; % node.data)</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="Pypeline.Pypes.BinarySearchTree.BST.getMaxValue"><code class="name flex">
+<span>def <span class="ident">getMaxValue</span></span>(<span>self) ‑> Union[int, float, NoneType]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Public method used to get the largest value in the BST</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getMaxValue(self) -&gt; Optional[Union[int, float]]:
+    &#34;&#34;&#34; 
+    Public method used to get the largest value in the BST
+    &#34;&#34;&#34;
+    if self.root:
+        return self.__getMax(self.root)
+    else:
+        return None</code></pre>
+</details>
+</dd>
+<dt id="Pypeline.Pypes.BinarySearchTree.BST.getMinValue"><code class="name flex">
+<span>def <span class="ident">getMinValue</span></span>(<span>self) ‑> Union[int, float, NoneType]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Public method used to get the smallest value in the BST</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getMinValue(self) -&gt; Optional[Union[int, float]]:
+    &#34;&#34;&#34; 
+    Public method used to get the smallest value in the BST
+    &#34;&#34;&#34;
+    if self.root: # if there are nodes in the BST
+        return self.__getMin(self.root)
+    else:
+        return None</code></pre>
+</details>
+</dd>
+<dt id="Pypeline.Pypes.BinarySearchTree.BST.getSize"><code class="name flex">
+<span>def <span class="ident">getSize</span></span>(<span>self) ‑> int</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Method used to return the size of the BST</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getSize(self) -&gt; int:
+    &#34;&#34;&#34; 
+    Method used to return the size of the BST
+    &#34;&#34;&#34;
+    return self.size</code></pre>
+</details>
+</dd>
+<dt id="Pypeline.Pypes.BinarySearchTree.BST.inOrderTraversal"><code class="name flex">
+<span>def <span class="ident">inOrderTraversal</span></span>(<span>self) ‑> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Public method used to perform an inOrderTraversal</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def inOrderTraversal(self) -&gt; None:
+    &#34;&#34;&#34; 
+    Public method used to perform an inOrderTraversal
+    &#34;&#34;&#34;
+    if self.root: # if the root node exists
+        self.__inOrder(self.root)</code></pre>
+</details>
+</dd>
+<dt id="Pypeline.Pypes.BinarySearchTree.BST.insert"><code class="name flex">
+<span>def <span class="ident">insert</span></span>(<span>self, data: Union[int, float]) ‑> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Public method used to insert data into the BST tree</p>
+<h2 id="parameters">Parameters</h2>
+<p>data: the data to be added to the tree</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def insert(self, data: Union[int, float]) -&gt; None:
+    &#34;&#34;&#34; 
+    Public method used to insert data into the BST tree
+
+    Parameters:\n
+        data: the data to be added to the tree
+    &#34;&#34;&#34;
+    assert (isinstance(data, int) or isinstance(data,float))
+
+    # if root node isnt currently defined
+    if not self.root:
+        self.root = Node(data) # instantiate the root of BTS
+        self.size += 1
+    else:
+        self.__insertNode(data, self.root)</code></pre>
+</details>
+</dd>
+<dt id="Pypeline.Pypes.BinarySearchTree.BST.postOrderTraversal"><code class="name flex">
+<span>def <span class="ident">postOrderTraversal</span></span>(<span>self) ‑> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Public method used to perform an postOrderTraversal</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def postOrderTraversal(self) -&gt; None:
+    &#34;&#34;&#34; 
+    Public method used to perform an postOrderTraversal
+    &#34;&#34;&#34;
+    if self.root: # if the root node exists
+        self.__postOrder(self.root)</code></pre>
+</details>
+</dd>
+<dt id="Pypeline.Pypes.BinarySearchTree.BST.preOrderTraversal"><code class="name flex">
+<span>def <span class="ident">preOrderTraversal</span></span>(<span>self) ‑> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Public method used to perform an preOrderTraversal</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def preOrderTraversal(self) -&gt; None:
+    &#34;&#34;&#34; 
+    Public method used to perform an preOrderTraversal
+    &#34;&#34;&#34;
+    if self.root: # if the root node exists
+        self.__preOrder(self.root)</code></pre>
+</details>
+</dd>
+<dt id="Pypeline.Pypes.BinarySearchTree.BST.remove"><code class="name flex">
+<span>def <span class="ident">remove</span></span>(<span>self, data: Union[int, float]) ‑> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Public method used to remove data from the BST tree</p>
+<h2 id="parameters">Parameters</h2>
+<p>data: the data to be removed from the tree</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def remove(self, data: Union[int, float]) -&gt; None:
+    &#34;&#34;&#34; 
+    Public method used to remove data from the BST tree
+
+    Parameters:\n
+        data: the data to be removed from the tree
+    &#34;&#34;&#34;
+    assert (isinstance(data, int) or isinstance(data,float))
+    if self.root: # if the root exists -&gt; are there nodes
+        self.root = self.__removeData(data,self.root)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="Pypeline.Pypes.BinarySearchTree.Node"><code class="flex name class">
+<span>class <span class="ident">Node</span></span>
+<span>(</span><span>data: Union[int, float])</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This is a custom node class for the Binary Search Tree</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>data</code></strong></dt>
+<dd>The data to be stored in the node</dd>
+<dt><strong><code>rightChild</code></strong></dt>
+<dd>The right child of the current node</dd>
+<dt><strong><code>leftChild</code></strong></dt>
+<dd>The left child of the current node </dd>
+</dl>
+<p>Constructor of the Node class</p>
+<h2 id="parameters">Parameters</h2>
+<p>data: the data to be stored in the Node</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Node(object):
+    &#34;&#34;&#34; 
+    This is a custom node class for the Binary Search Tree
+      
+    Attributes:\n
+        data: The data to be stored in the node
+        rightChild: The right child of the current node
+        leftChild: The left child of the current node 
+    &#34;&#34;&#34;
+
+    def __init__(self, data: Union[int, float]) -&gt; None:
+        &#34;&#34;&#34; 
+        Constructor of the Node class
+
+        Parameters:\n
+            data: the data to be stored in the Node 
+        &#34;&#34;&#34;
+        assert (isinstance(data, int) or isinstance(data,float))
+        self.data: Union[int, float] = data
+        self.leftChild: Optional[Node] = None
+        self.rightChild: Optional[Node] = None</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="Pypeline.Pypes" href="index.html">Pypeline.Pypes</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="Pypeline.Pypes.BinarySearchTree.BST" href="#Pypeline.Pypes.BinarySearchTree.BST">BST</a></code></h4>
+<ul class="two-column">
+<li><code><a title="Pypeline.Pypes.BinarySearchTree.BST.getMaxValue" href="#Pypeline.Pypes.BinarySearchTree.BST.getMaxValue">getMaxValue</a></code></li>
+<li><code><a title="Pypeline.Pypes.BinarySearchTree.BST.getMinValue" href="#Pypeline.Pypes.BinarySearchTree.BST.getMinValue">getMinValue</a></code></li>
+<li><code><a title="Pypeline.Pypes.BinarySearchTree.BST.getSize" href="#Pypeline.Pypes.BinarySearchTree.BST.getSize">getSize</a></code></li>
+<li><code><a title="Pypeline.Pypes.BinarySearchTree.BST.inOrderTraversal" href="#Pypeline.Pypes.BinarySearchTree.BST.inOrderTraversal">inOrderTraversal</a></code></li>
+<li><code><a title="Pypeline.Pypes.BinarySearchTree.BST.insert" href="#Pypeline.Pypes.BinarySearchTree.BST.insert">insert</a></code></li>
+<li><code><a title="Pypeline.Pypes.BinarySearchTree.BST.postOrderTraversal" href="#Pypeline.Pypes.BinarySearchTree.BST.postOrderTraversal">postOrderTraversal</a></code></li>
+<li><code><a title="Pypeline.Pypes.BinarySearchTree.BST.preOrderTraversal" href="#Pypeline.Pypes.BinarySearchTree.BST.preOrderTraversal">preOrderTraversal</a></code></li>
+<li><code><a title="Pypeline.Pypes.BinarySearchTree.BST.remove" href="#Pypeline.Pypes.BinarySearchTree.BST.remove">remove</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="Pypeline.Pypes.BinarySearchTree.Node" href="#Pypeline.Pypes.BinarySearchTree.Node">Node</a></code></h4>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,43 @@
+# This file may be used to create an environment using:
+# $ conda create --name <env> --file <this file>
+# platform: osx-64
+@EXPLICIT
+https://repo.anaconda.com/pkgs/main/osx-64/blas-1.0-mkl.conda
+https://repo.anaconda.com/pkgs/main/osx-64/ca-certificates-2021.1.19-hecd8cb5_0.conda
+https://repo.anaconda.com/pkgs/main/osx-64/intel-openmp-2019.4-233.conda
+https://repo.anaconda.com/pkgs/main/osx-64/libcxx-10.0.0-1.conda
+https://repo.anaconda.com/pkgs/main/noarch/tzdata-2020f-h52ac0ba_0.conda
+https://repo.anaconda.com/pkgs/main/osx-64/xz-5.2.5-h1de35cc_0.conda
+https://repo.anaconda.com/pkgs/main/osx-64/zlib-1.2.11-h1de35cc_3.conda
+https://repo.anaconda.com/pkgs/main/osx-64/libffi-3.3-hb1e8313_2.conda
+https://repo.anaconda.com/pkgs/main/osx-64/mkl-2019.4-233.conda
+https://repo.anaconda.com/pkgs/main/osx-64/ncurses-6.2-h0a44026_1.conda
+https://repo.anaconda.com/pkgs/main/osx-64/openssl-1.1.1j-h9ed2024_0.conda
+https://repo.anaconda.com/pkgs/main/osx-64/tk-8.6.10-hb0a8c7a_0.conda
+https://repo.anaconda.com/pkgs/main/osx-64/libedit-3.1.20191231-h1de35cc_1.conda
+https://repo.anaconda.com/pkgs/main/osx-64/readline-8.1-h9ed2024_0.conda
+https://repo.anaconda.com/pkgs/main/osx-64/sqlite-3.33.0-hffcf06c_0.conda
+https://repo.anaconda.com/pkgs/main/osx-64/python-3.9.1-h88f2d9e_2.conda
+https://repo.anaconda.com/pkgs/main/noarch/attrs-20.3.0-pyhd3eb1b0_0.conda
+https://repo.anaconda.com/pkgs/main/osx-64/certifi-2020.12.5-py39hecd8cb5_0.conda
+https://repo.anaconda.com/pkgs/main/osx-64/docutils-0.16-py39hecd8cb5_1.conda
+https://repo.anaconda.com/pkgs/main/noarch/iniconfig-1.1.1-pyhd3eb1b0_0.tar.bz2
+https://repo.anaconda.com/pkgs/main/noarch/more-itertools-8.7.0-pyhd3eb1b0_0.conda
+https://repo.anaconda.com/pkgs/main/noarch/py-1.10.0-pyhd3eb1b0_0.conda
+https://repo.anaconda.com/pkgs/main/noarch/pyparsing-2.4.7-pyhd3eb1b0_0.tar.bz2
+https://repo.anaconda.com/pkgs/main/osx-64/six-1.15.0-py39hecd8cb5_0.conda
+https://repo.anaconda.com/pkgs/main/noarch/toml-0.10.1-py_0.conda
+https://repo.anaconda.com/pkgs/main/noarch/wheel-0.36.2-pyhd3eb1b0_0.conda
+https://repo.anaconda.com/pkgs/main/noarch/zipp-3.4.0-pyhd3eb1b0_0.conda
+https://repo.anaconda.com/pkgs/main/noarch/importlib-metadata-2.0.0-py_1.conda
+https://repo.anaconda.com/pkgs/main/osx-64/mkl-service-2.3.0-py39h9ed2024_0.conda
+https://repo.anaconda.com/pkgs/main/noarch/packaging-20.9-pyhd3eb1b0_0.conda
+https://repo.anaconda.com/pkgs/main/osx-64/setuptools-52.0.0-py39hecd8cb5_0.conda
+https://repo.anaconda.com/pkgs/main/noarch/importlib_metadata-2.0.0-1.conda
+https://repo.anaconda.com/pkgs/main/osx-64/numpy-base-1.19.2-py39hde55871_0.conda
+https://repo.anaconda.com/pkgs/main/osx-64/pip-21.0.1-py39hecd8cb5_0.conda
+https://repo.anaconda.com/pkgs/main/osx-64/mkl_random-1.0.2-py39h16bde0e_0.conda
+https://repo.anaconda.com/pkgs/main/noarch/pluggy-0.12.0-py_0.conda
+https://repo.anaconda.com/pkgs/main/osx-64/pytest-6.2.2-py39hecd8cb5_2.conda
+https://repo.anaconda.com/pkgs/main/osx-64/mkl_fft-1.2.1-py39ha059aab_0.conda
+https://repo.anaconda.com/pkgs/main/osx-64/numpy-1.19.2-py39he57783f_0.conda

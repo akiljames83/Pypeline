@@ -17,6 +17,12 @@ To test install, run the following line of code:
 
 `import Pypeline`
 
+## Development
+Run all scripts from within the `Pypeline` folder as follows:
+```bash
+Pypeline$ ./scripts/run_tests.sh
+```
+
 ## Data Structures Implemented
 *   [AVL Tree](#avl-tree)
 *   [Binary Search Tree](#binary-search-tree)

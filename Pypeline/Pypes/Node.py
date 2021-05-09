@@ -1,28 +1,32 @@
-'''
+"""
 Implementation of the node object
-'''
+
+"""
+
+from typing import Any, Optional
+
 class Node(object):
 
-	def __init__(self,val=None):
-		'''
-		Base for node object containing node value and visited state.
-		val -> Any data type
-		visited -> bool
-		'''
-		self.val = val
-		self.visited = False
+    def __init__(self, val: Any=None):
+        '''
+        Base for node object containing node value and visited state.
+        val -> Any data type
+        visited -> bool
+        '''
+        self.val: Any = val
+        self.visited: bool = False
 
-	def setVisited(self):
-		self.visited = True
+    def setVisited(self) -> None:
+        self.visited = True
 
-	def swapVisited(self):
-		self.visited = not self.visited
+    def swapVisited(self) -> None:
+        self.visited = not self.visited
 
-	def isVisited(self):
-		return self.visited
+    def isVisited(self) -> bool:
+        return self.visited
 
-	def setVal(self,val):
-		self.val = val
+    def setVal(self, val) -> None:
+        self.val = val
 
-	def getVal(self):
-		return self.val
+    def getVal(self) -> Any:
+        return self.val
